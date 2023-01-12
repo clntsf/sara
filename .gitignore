@@ -1,3 +1,4 @@
 writetimezone
 installcmd.sh
+timezone/makejar
 test/**
