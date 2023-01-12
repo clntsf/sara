@@ -14,7 +14,7 @@ import java.net.URL;
 import java.net.MalformedURLException;
 
 public class CTime {
-    public static final String TIMEZONE_URL = "https://raw.githubusercontent.com/ctsf1/sara/master/tz";
+    public static final String TIMEZONE_URL = "https://raw.githubusercontent.com/ctsf1/sara/master/timezone/tz";
 
     public static void main( String[] args ) {
         
