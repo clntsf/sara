@@ -1,4 +1,6 @@
 import java.util.TimeZone;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,16 +17,11 @@ public class timezone {
     public static void main( String[] args ) {
         
         if (args.length > 0) if ( args[0].equals("write") ) {
-            try{
-                writeSystemTimezone();
-                Process p = Runtime.getRuntime().exec(
-                    "git add --all; git commit -m 'update write timezone'; git push -u main"
-                );
-            }
-            catch (IOException ioE) {
-                System.out.printf("IO Exception in write: %s\n", ioE.getMessage());
-            }
+            writeSystemTimezone();
+            return;
         }
+        displayCTime();
+
     }
 
     public static void writeSystemTimezone() {
@@ -85,5 +82,18 @@ public class timezone {
         }
     }
     
+    public static void displayCTime() {
+        String tz = readTimezoneFromWeb();
 
+        Date date = new Date();
+        SimpleDateFormat fmt = new SimpleDateFormat("EEEE, dd MMMM YYYY @ h:mm:ss a");
+        fmt.setTimeZone(TimeZone.getTimeZone(tz));
+        
+        String hl = "-".repeat(30);
+
+        System.out.println(hl);
+        System.out.printf("Colin's current timezone ID: %s \n", tz);
+        System.out.printf("Current time in timezone: %s\n", fmt.format(date));
+        System.out.println(hl);
+    }
 }
