@@ -13,11 +13,12 @@ public class timezone {
     public static final String TIMEZONE_URL = "https://raw.githubusercontent.com/ctsf1/sara/master/tz";
 
     public static void main( String[] args ) {
-        if (args.length > 0) if (args[0] == "write") {
-            writeSystemTimezone();
+        
+        if (args.length > 0) if ( args[0].equals("write") ) {
             try{
-                Process p = Runtime.getRuntime().exec(
-                    "git commit -m 'update write timezone' && git push -u main"
+                writeSystemTimezone();
+                Runtime.getRuntime().exec(
+                    "git add tz; git commit -m 'update write timezone'; git push -u main"
                 );
             }
             catch (IOException ioE) {
