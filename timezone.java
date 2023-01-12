@@ -17,8 +17,8 @@ public class timezone {
         if (args.length > 0) if ( args[0].equals("write") ) {
             try{
                 writeSystemTimezone();
-                Runtime.getRuntime().exec(
-                    "git add tz; git commit -m 'update write timezone'; git push -u main"
+                Process p = Runtime.getRuntime().exec(
+                    "git add --all; git commit -m 'update write timezone'; git push -u main"
                 );
             }
             catch (IOException ioE) {
