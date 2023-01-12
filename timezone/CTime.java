@@ -1,3 +1,5 @@
+package timezone;
+
 import java.util.TimeZone;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -11,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.MalformedURLException;
 
-public class timezone {
+public class CTime {
     public static final String TIMEZONE_URL = "https://raw.githubusercontent.com/ctsf1/sara/master/tz";
 
     public static void main( String[] args ) {
@@ -33,7 +35,7 @@ public class timezone {
     }
 
     public static String getTimezoneFilepath() {
-        URL tzFile = timezone.class.getResource("");
+        URL tzFile = CTime.class.getResource("");
         return tzFile.getPath() + "tz";
     }
 
