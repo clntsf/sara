@@ -1,0 +1,8 @@
+#! /bin/zsh
+
+cd ~/desktop/sara/time
+java timezone.CTime write
+git add --all
+git commit -m 'update timezone write'
+git push -u origin
+cd ~
