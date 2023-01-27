@@ -17,7 +17,6 @@ public class CTime {
     public static final String TIMEZONE_URL = "https://raw.githubusercontent.com/ctsf1/sara/master/timezone/tz";
 
     public static void main( String[] args ) {
-        
         if (args.length > 0) if ( args[0].equals("write") ) {
             writeSystemTimezone();
             return;
@@ -35,8 +34,8 @@ public class CTime {
     }
 
     public static String getTimezoneFilepath() {
-        URL tzFile = CTime.class.getResource("");
-        return tzFile.getPath() + "tz";
+        String tzFile = CTime.class.getResource("tz").toString();
+        return tzFile.substring(5);
     }
 
     public static void writeToFile( String content ){
