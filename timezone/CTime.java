@@ -22,7 +22,6 @@ public class CTime {
             return;
         }
         displayCTime();
-
     }
 
     public static void writeSystemTimezone() {
